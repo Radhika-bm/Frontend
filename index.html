@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberSafe - Digital Fraud Awareness</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f6fc;
+    color: #263445;
+    line-height: 1.6;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    padding: 24px 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 30px;
+}
+
+nav {
+    background: #176b87;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+button {
+    padding: 11px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button {
+    background: white;
+    color: #102a43;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.container {
+    width: 92%;
+    max-width: 1000px;
+    margin: 25px auto;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero {
+    background: linear-gradient(135deg, #176b87, #102a43);
+    color: white;
+    padding: 42px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    margin: 16px 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+.card h3 {
+    color: #176b87;
+    margin-bottom: 8px;
+}
+
+.card ul, .card ol {
+    padding-left: 22px;
+}
+
+.action {
+    background: #176b87;
+    color: white;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #b8c7d1;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+    background: #e7f0f5;
+    color: #263445;
+}
+
+.option:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.notice {
+    background: #fff1cc;
+    color: #654900;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+#quizResult, #linkResult {
+    margin-top: 15px;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+}
+
+a {
+    color: #176b87;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 24px;
+    }
+    nav button {
+        padding: 9px 11px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛡️ CyberSafe</h1>
+    <p>Cyber Safety and Digital Fraud Awareness Platform</p>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('awareness')">Awareness</button>
+    <button onclick="showPage('quiz')">Quiz</button>
+    <button onclick="showPage('checker')">Link Checker</button>
+    <button onclick="showPage('report')">Report Fraud</button>
+</nav>
+
+<main class="container">
+
+<!-- HOME PAGE -->
+<section id="home" class="page active">
+
+    <div class="hero">
+        <h2>Stay Safe in the Digital World!</h2>
+        <p>Learn to identify online scams and protect your personal information.</p>
+        <button class="action" onclick="showPage('awareness')">
+            Start Learning
+        </button>
+    </div>
+
+    <div class="card">
+        <h3>📚 Scam Awareness</h3>
+        <p>Understand phishing, UPI fraud, fake job offers,
+        digital arrest scams and malicious applications.</p>
+        <button class="action" onclick="showPage('awareness')">
+            Explore Scams
+        </button>
+    </div>
+
+    <div class="card">
+        <h3>🧠 Interactive Quiz</h3>
+        <p>Test your knowledge through a short cyber safety quiz.</p>
+        <button class="action" onclick="showPage('quiz')">
+            Take Quiz
+        </button>
+    </div>
+
+    <div class="card">
+        <h3>🔎 Suspicious Link Checker</h3>
+        <p>Learn to recognize common warning signs in website addresses.</p>
+        <button class="action" onclick="showPage('checker')">
+            Check a Link
+        </button>
+    </div>
+
+    <div class="card">
+        <h3>📢 Report Cybercrime</h3>
+        <p>Find official guidance on reporting online fraud in India.</p>
+        <button class="action" onclick="showPage('report')">
+            Reporting Guidance
+        </button>
+    </div>
+
+</section>
+
+<!-- AWARENESS PAGE -->
+<section id="awareness" class="page">
+    <h2>Cyber Scam Awareness</h2>
+
+    <div class="card">
+        <h3>1. Phishing Scams</h3>
+        <p>Fraudsters send fake emails, messages or websites
+        to steal personal information.</p>
+        <p><b>Safety tip:</b> Verify the sender and website before
+        sharing information.</p>
+    </div>
+
+    <div class="card">
+        <h3>2. UPI and OTP Fraud</h3>
+        <p>Scammers may trick people into revealing OTPs or
+        approving unexpected payment requests.</p>
+        <p><b>Safety tip:</b> Never share your OTP or UPI PIN.
+        You do not need a UPI PIN to receive money.</p>
+    </div>
+
+    <div class="card">
+        <h3>3. Fake Job Offers</h3>
+        <p>Fraudsters may promise jobs and demand money for
+        registration, training or guaranteed selection.</p>
+        <p><b>Safety tip:</b> Verify the employer using official
+        company contact details.</p>
+    </div>
+
+    <div class="card">
+        <h3>4. Digital Arrest Scams</h3>
+        <p>Scammers impersonate officials and use threats or
+        video calls to pressure people into transferring money.</p>
+        <p><b>Safety tip:</b> Do not transfer money because of
+        threats. Independently contact the relevant agency.</p>
+    </div>
+
+    <div class="card">
+        <h3>5. Malicious Applications</h3>
+        <p>Some apps misuse permissions or attempt to collect
+        personal information.</p>
+        <p><b>Safety tip:</b> Install apps from trusted sources
+        and review their permissions.</p>
+    </div>
+
+    <div class="card">
+        <h3>6. Fake Prize Messages</h3>
+        <p>Unexpected messages may claim you have won a prize
+        and ask for a fee or personal details.</p>
+        <p><b>Safety tip:</b> Do not pay unexpected fees or
+        share sensitive information to claim a prize.</p>
+    </div>
+</section>
+
+<!-- QUIZ PAGE -->
+<section id="quiz" class="page">
+    <h2>Cyber Safety Quiz</h2>
+
+    <div class="card">
+        <p id="question">Press Start Quiz to begin.</p>
+        <div id="options"></div>
+        <p id="quizResult" aria-live="polite"></p>
+
+        <button class="action" id="startBtn" onclick="startQuiz()">
+            Start Quiz
+        </button>
+
+        <button class="action" id="nextBtn"
+                onclick="nextQuestion()" hidden>
+            Next Question
+        </button>
+    </div>
+</section>
+
+<!-- LINK CHECKER PAGE -->
+<section id="checker" class="page">
+    <h2>Suspicious Link Checker Demo</h2>
+
+    <div class="card">
+        <p>Enter a URL to check for a few common warning signs.</p>
+
+        <input
+            type="text"
+            id="urlInput"
+            placeholder="Example: http://example.com"
+            autocomplete="off"
+        >
+
+        <button class="action" onclick="checkLink()">
+            Analyze URL
+        </button>
+
+        <p id="linkResult" aria-live="polite"></p>
+
+        <div class="notice">
+            <b>Important:</b> This is an educational demonstration,
+            not a real-time security scanner. A URL with no warnings
+            may still be dangerous. Do not open suspicious links
+            to test them.
+        </div>
+    </div>
+</section>
+
+<!-- REPORT PAGE -->
+<section id="report" class="page">
+    <h2>Report Cybercrime in India</h2>
+
+    <div class="card">
+        <h3>What should you do?</h3>
+
+        <ol>
+            <li>Contact your bank or payment provider immediately
+            if money has been lost.</li>
+            <li>For financial cyber fraud in India, call
+            <b>1930</b> as soon as possible.</li>
+            <li>Submit a report through the official cybercrime portal.</li>
+            <li>Keep relevant messages, transaction details and
+            other evidence.</li>
+            <li>Do not share passwords, OTPs or UPI PINs with anyone.</li>
+        </ol>
+
+        <p>
+            <b>Official reporting website:</b>
+            <a href="https://cybercrime.gov.in/"
+               target="_blank" rel="noopener noreferrer">
+                National Cyber Crime Reporting Portal
+            </a>
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Remember</h3>
+        <p>Act quickly, contact the appropriate authorities and
+        use official websites for reporting.</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>CyberSafe | VTU Mini Project Prototype</p>
+    <p>Learn • Identify • Protect</p>
+</footer>
+
+<script>
+// PAGE NAVIGATION
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+}
+
+// QUIZ QUESTIONS
+const questions = [
+    {
+        question: "1. Should you share your OTP with a caller?",
+        options: [
+            "Yes, always",
+            "No, never",
+            "Only with unknown callers"
+        ],
+        answer: 1,
+        explanation: "Never share your OTP with anyone."
+    },
+    {
+        question: "2. What should you do with a suspicious link?",
+        options: [
+            "Click it immediately",
+            "Forward it to friends",
+            "Verify it independently"
+        ],
+        answer: 2,
+        explanation: "Verify unexpected links before taking action."
+    },
+    {
+        question: "3. A recruiter asks you to pay to guarantee a job. What should you do?",
+        options: [
+            "Pay immediately",
+            "Verify the employer",
+            "Share your bank PIN"
+        ],
+        answer: 1,
+        explanation: "Verify the employer through official channels."
+    },
+    {
+        question: "4. What should you do after financial cyber fraud?",
+        options: [
+            "Ignore the incident",
+            "Report promptly and contact your bank",
+            "Delete all evidence"
+        ],
+        answer: 1,
+        explanation: "Contact your bank and call 1930 in India for financial cyber fraud."
+    },
+    {
+        question: "5. Does HTTPS guarantee that a website is trustworthy?",
+        options: [
+            "Yes, always",
+            "No",
+            "Only on mobile"
+        ],
+        answer: 1,
+        explanation: "HTTPS protects the connection but does not prove the website is legitimate."
+    }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+let quizStarted = false;
+
+function startQuiz() {
+    currentQuestion = 0;
+    score = 0;
+    answered = false;
+    quizStarted = true;
+
+    document.getElementById("startBtn").hidden = true;
+    document.getElementById("nextBtn").hidden = true;
+
+    displayQuestion();
+}
+
+function displayQuestion() {
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("question").textContent =
+        "Question " + (currentQuestion + 1) + " of " +
+        questions.length + ": " + q.question;
+
+    document.getElementById("quizResult").textContent = "";
+    document.getElementById("options").innerHTML = "";
+
+    q.options.forEach(function(option, index) {
+        const button = document.createElement("button");
+
+        button.className = "option";
+        button.textContent = option;
+
+        button.onclick = function() {
+            checkAnswer(index);
+        };
+
+        document.getElementById("options").appendChild(button);
+    });
+}
+
+function checkAnswer(selected) {
+    if (answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+    const buttons = document.querySelectorAll("#options button");
+
+    buttons.forEach(function(button) {
+        button.disabled = true;
+    });
+
+    if (selected === q.answer) {
+        score++;
+        document.getElementById("quizResult").textContent =
+            "Correct! " + q.explanation;
+    } else {
+        document.getElementById("quizResult").textContent =
+            "Incorrect. " + q.explanation;
+    }
+
+    const nextBtn = document.getElementById("nextBtn");
+    nextBtn.hidden = false;
+
+    if (currentQuestion === questions.length - 1) {
+        nextBtn.textContent = "View Final Score";
+    } else {
+        nextBtn.textContent = "Next Question";
+    }
+}
+
+function nextQuestion() {
+    if (!answered) {
+        document.getElementById("quizResult").textContent =
+            "Please select an answer first.";
+        return;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        displayQuestion();
+    } else {
+        document.getElementById("question").textContent =
+            "Quiz Completed!";
+
+        document.getElementById("options").innerHTML = "";
+
+        document.getElementById("quizResult").textContent =
+            "Your score: " + score + " out of " +
+            questions.length + ". " +
+            (score === questions.length
+                ? "Excellent work!"
+                : "Keep learning and try again.");
+
+        document.getElementById("nextBtn").hidden = true;
+        document.getElementById("startBtn").hidden = false;
+        document.getElementById("startBtn").textContent = "Restart Quiz";
+        quizStarted = false;
+    }
+}
+
+// EDUCATIONAL URL CHECKER
+function checkLink() {
+    const input = document.getElementById("urlInput").value.trim();
+    const result = document.getElementById("linkResult");
+
+    result.textContent = "";
+
+    if (!input) {
+        result.textContent = "Please enter a URL.";
+        return;
+    }
+
+    let url;
+
+    try {
+        url = new URL(
+            /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(input)
+                ? input
+                : "https://" + input
+        );
+    } catch (error) {
+        result.textContent =
+            "The address format is invalid. Check what you entered.";
+        return;
+    }
+
+    if (url.protocol !== "http:" && url.protocol !== "https:") {
+        result.textContent =
+            "Warning: This is not a standard HTTP/HTTPS web address.";
+        return;
+    }
+
+    const warnings = [];
+    const hostname = url.hostname.toLowerCase();
+
+    if (url.protocol === "http:") {
+        warnings.push("The connection uses HTTP rather than HTTPS.");
+    }
+
+    if (url.username || url.password) {
+        warnings.push("The address contains user information before the host.");
+    }
+
+    if (hostname.split(".").some(function(label) {
+        return label.startsWith("xn--");
+    })) {
+        warnings.push("The domain contains an encoded internationalized label.");
+    }
+
+    if (/^\d{1,3}(\.\d{1,3}){3}$/.test(hostname)) {
+        warnings.push("The host is an IP address rather than a regular domain name.");
+    }
+
+    if (hostname.split(".").some(function(label) {
+        return label.length > 50;
+    })) {
+        warnings.push("The domain contains an unusually long label.");
+    }
+
+    if (warnings.length > 0) {
+        result.textContent =
+            "Warning signs found:\n• " + warnings.join("\n• ") +
+            "\n\nThis does not confirm the site is malicious.";
+    } else {
+        result.textContent =
+            "No warning signs detected by this basic demo. " +
+            "This does NOT mean the URL is safe. Verify the domain independently.";
+    }
+}
+</script>
+
+</body>
+</html>
